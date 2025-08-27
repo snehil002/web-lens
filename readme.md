@@ -1,4 +1,4 @@
-# Web Analytics Tool
+# WebLens: A Cookie-Free Web Analytics Tool
 
 > See ss/ folder for screenshots
 
