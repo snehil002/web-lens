@@ -1,4 +1,5 @@
-const { connect, Schema, model, set } = require("mongoose");
+const { connect, Schema, model, set, connection } = require("mongoose");
+const { MONGODB_URL } = require("./config/env");
 
 
 
@@ -45,9 +46,8 @@ exports.connectDB = async () => {
   set("strictQuery", false);
 
   try {
-    const url = "MY_DB_URL_HERE";
-    await connect(url);
-    console.log(`DB connected`);
+    await connect(MONGODB_URL);
+    console.log(`DB connected: ${connection.name}`);
   }
   catch (err) {
     console.error(err);
