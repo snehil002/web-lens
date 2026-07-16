@@ -1,3 +1,4 @@
+require('dotenv').config({ quiet: true });
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
@@ -6,6 +7,7 @@ const {
   myFindInArray, myValidateDates, getTrackedPaths, createAggrParams,
   matchWithDateAndPath, groupAndProject, getYLabels, getAxes
 } = require("./helper");
+const { PORT } = require("./config/env");
 
 
 
@@ -15,7 +17,6 @@ const app = express();
 app.use(bodyParser.json( { type: "application/json" } ));
 app.use(cors());
 
-const port = process.env.PORT || 3030;
 
 
 
@@ -114,8 +115,8 @@ app.get("/get-metric", async (req, res) => {
 
 
 /********START APP SERVER**********/
-app.listen(port, () => {
-  console.log(`Running, http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`Server started at http://localhost:${PORT}`);
 });
 
 
