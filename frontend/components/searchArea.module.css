@@ -14,7 +14,3 @@
 .searchArea button:focus {
   background-color: #dbdffb;
 }
-
-.label {
-  position: absolute;
-}

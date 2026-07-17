@@ -1,7 +1,7 @@
 {
-  "name": "backend",
+  "name": "web-lens-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Weblens backend built using Node.js",
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",

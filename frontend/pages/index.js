@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import useSWR from 'swr';
+import Head from 'next/head';
 import NavAndHead from '../components/navAndHead';
 import MoreControls from '../components/morecontrols';
 import ChartArea from "../components/chartarea";
+import { NEXT_PUBLIC_MY_SERVER_API } from "../config/env.js";
 
 
 const fetcher = u => fetch(u).then(r => r.json())
@@ -32,6 +34,10 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <title>Weblens</title>
+      </Head>
+
       <NavAndHead setParameter={setParameter} selectedParams={params} />
 
       <main className="px-5">
@@ -82,7 +88,7 @@ function useMetricData (params) {
   // Client's Current Time Zone
   const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-  const url = "MY_SERVER_API_HERE" +
+  const url = NEXT_PUBLIC_MY_SERVER_API +
     `/get-metric/` + `?` + `visitedurl=${visitedUrl}` + `&metricname=${metricName}` +
     `&timestringi=${timeStringI}` + `&timestringf=${timeStringF}` +
     `&timezone=${timeZone}`;

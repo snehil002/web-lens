@@ -1,4 +1,8 @@
 {
+  "name": "web-lens-frontend",
+  "version": "1.0.0",
+  "description": "Weblens frontend built using Next.js",
+  "author": "Snehil Kumar",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

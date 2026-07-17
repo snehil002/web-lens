@@ -8,17 +8,13 @@ export default function ({ selectedParams, setParameter }) {
     <>
       <span className={"input-group " + styles.searchArea}>
         
-          <input id="searchURL" className="form-control" type="text" 
-            placeholder="Search URL" aria-label="Search"
-            onChange={
-              (e) => {
-                setTypedPath(e.target.value)
-              }
-            }
-            value={typedPath}
-          />
-        
-          {/* <label className={styles.label} htmlFor="searchURL">Search URL</label> */}
+        <input className="form-control" type="text" 
+          placeholder="Search Path" aria-label="Search"
+          onChange={(e) => {
+            setTypedPath(e.target.value)
+          }}
+          value={typedPath}
+        />
 
         <button
           onClick = {(e) => {
