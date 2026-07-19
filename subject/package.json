@@ -1,4 +1,8 @@
 {
+  "name": "web-lens-subject",
+  "version": "1.0.0",
+  "description": "Weblens subject website built using Next.js. Used for collecting analytics data.",
+  "author": "Snehil Kumar",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

@@ -2,14 +2,12 @@
   "name": "web-lens-backend",
   "version": "1.0.0",
   "description": "Weblens backend built using Node.js",
+  "author": "Snehil Kumar",
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
     "start": "node server.js"
   },
-  "keywords": [],
-  "author": "Snehil Kumar",
-  "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.1",
     "cors": "^2.8.5",
