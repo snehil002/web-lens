@@ -1,10 +1,11 @@
+import Link from "next/link";
 import styles from "./post-snippet.module.css";
 
 export default function Snippet({title, author, created, duration, path}){
   return (
     <div className={styles.snippetDiv}>
       <div>
-        <a href={"/post/"+path}>{title}</a>
+        <Link href={"/post/"+path}>{title}</Link>
       </div>
       <div className={styles.metadata}>
         <span>{author}</span>
