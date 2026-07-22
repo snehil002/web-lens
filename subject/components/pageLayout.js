@@ -9,10 +9,8 @@ export default function ({ title, author, created, duration, text1, text2, text3
       <div className="pageDiv">
 
         <Head>
-          <title>{title + " - Web Analytics Subject"}</title>
+          <title>{title + " - SK Blogs"}</title>
         </Head>
-        
-        <Script src="/tracking-code.js" strategy="lazyOnload" />
         
         <Header />
         
