@@ -9,14 +9,12 @@ export default function Home() {
     <div className="pageDiv">
       
       <Head>
-        <title>Subject - Web Analytics Tool</title>
+        <title>SK Blogs</title>
       </Head>
-      
-      <Script src="/tracking-code.js" strategy="lazyOnload" />
 
       <Header />
 
-      <h1>Welcome To Snehil's Little Blog</h1>
+      <h1>Welcome To Snehil's Little Tech Blog</h1>
 
       <p>
         This is a dummy website. It is created to demonstrate 
