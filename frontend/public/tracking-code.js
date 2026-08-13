@@ -1,5 +1,7 @@
 console.log("You are being tracked! For analytics! No private data!");
 
+const backendUrl = "https://web-lens-backend.onrender.com";
+// const backendUrl = "http://localhost:3030";
 let canSendData;
 let myTimeout;
 
@@ -38,8 +40,7 @@ const resetSrcNCurrUrl = (prevUrl, currUrl) => {
 
 /* Send Data to Analytics Server */
 const sendData = async () => {
-  const host = "MY_SERVER_API_HERE";
-  const URL = host + `/save-session-data`;
+  const URL = `${backendUrl}/save-session-data`;
 
   const options = {
     method: "POST",
