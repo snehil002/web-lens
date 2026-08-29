@@ -5,16 +5,22 @@ const backendUrl = "https://web-lens-backend.onrender.com";
 let canSendData;
 let myTimeout;
 
+if (!sessionStorage.getItem("session_id")) {
+  sessionStorage.setItem("session_id", crypto.randomUUID());
+}
+
 /* create initial user data */
 const userData = {
   "webId": "SUB001",
-  "currOrigin": location.origin,
+  "origin": location.origin,
+  "sourceUrl": document.referrer || "Direct",
+  "deviceWidth": screen.width,
+  "sessionId": sessionStorage.getItem("session_id"),
   "currUrl": location.href,
+  "prevUrl": document.referrer || "Direct",
   "initialTime": 0,
   "finalTime": 0,
   "timeDelta": 0,
-  "sourceUrl": document.referrer || "Direct",
-  "deviceWidth": screen.width
 };
 
 
@@ -29,12 +35,11 @@ const resetInitialTime = () => {
 };
 
 
-const resetSrcNCurrUrl = (prevUrl, currUrl) => {
+const resetPrevNCurrUrl = () => {
   if (userData["currUrl"] !== location.href) {
-    userData["sourceUrl"] = userData["currUrl"];
+    userData["prevUrl"] = userData["currUrl"];
     userData["currUrl"] = location.href;
   }
-  userData["currOrigin"] = location.origin;
 };
 
 
@@ -64,14 +69,9 @@ const sendData = async () => {
 
 const sendExitData = () => {
   if (canSendData) {
-    const finalTime = Date.now();
-    const initialTime = userData["initialTime"];
-
-    userData["timeDelta"] = (finalTime - initialTime) / 1000;
-    userData["finalTime"] = finalTime;
-
+    userData["finalTime"] = Date.now();
+    userData["timeDelta"] = (userData["finalTime"] - userData["initialTime"]) / 1000;
     sendData();
-    // console.log(JSON.stringify(userData));
   }
 };
 
@@ -96,7 +96,7 @@ const patchHistory = function (type) {
     
     sendExitData();
     resetInitialTime();
-    resetSrcNCurrUrl();
+    resetPrevNCurrUrl();
     
     return result;
   };
