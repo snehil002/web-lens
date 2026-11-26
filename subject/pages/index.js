@@ -1,4 +1,3 @@
-import Script from 'next/script';
 import Head from 'next/head';
 import Header from "../components/Header";
 import PostSnippet from '../components/post-snippet';
